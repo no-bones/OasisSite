@@ -2,10 +2,382 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oasis Scholastic Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Oasis Scholastic Club | Advancing Literacy & Learning</title>
+    <meta name="description" content="Oasis Scholastic Club is a 501(c)(3) non-profit organization dedicated to the support and advancement of literary support services, fostering educational equity and a lifelong love of reading.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #fefcf5;
+            color: #1e2a2f;
+            line-height: 1.5;
+        }
+
+        /* accessibility & focus */
+        :focus-visible {
+            outline: 3px solid #2c7a4d;
+            outline-offset: 2px;
+        }
+
+        /* container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        /* header */
+        .header {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-bottom: 2px solid #e7e0cf;
+        }
+
+        .logo-area h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e4a2f, #3b7b4c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #4a5b4e;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eaf6e9;
+            color: #2c6e3c;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* mission & description */
+        .mission-section {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid #ede6d6;
+        }
+
+        .mission-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2a5f3e;
+            border-left: 5px solid #3c9b60;
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-text {
+            font-size: 1.12rem;
+            color: #2d3a2f;
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .highlight-card {
+            flex: 1 1 200px;
+            background: #faf8f0;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.2s ease;
+            border: 1px solid #e3dbc8;
+        }
+
+            .highlight-card h3 {
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: #2f6b47;
+                margin-bottom: 0.5rem;
+            }
+
+            .highlight-card p {
+                font-size: 0.95rem;
+                color: #4c5a4a;
+            }
+
+        /* determination letter summary */
+        .determination-card {
+            background: #f2f4eb;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 6px solid #2c7a4d;
+        }
+
+            .determination-card h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+            }
+
+        .tax-status {
+            background: #1e4a2f;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .letter-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .detail-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .detail-label {
+            font-weight: 700;
+            color: #3a6b47;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            color: #1f2e24;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #4f5e51;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* contact CTA */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(105deg, #f0f4ea 0%, #fefbf3 100%);
+            border-radius: 2rem;
+            padding: 2.5rem 1.5rem;
+            margin: 2.5rem 0;
+            border: 1px solid #dde5cf;
+        }
+
+            .contact-section h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                color: #1e462f;
+                margin-bottom: 0.75rem;
+            }
+
+            .contact-section p {
+                font-size: 1.1rem;
+                max-width: 550px;
+                margin: 0 auto 1.8rem auto;
+                color: #385c42;
+            }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: #2a6740;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 14px rgba(42, 103, 64, 0.25);
+            border: none;
+        }
+
+            .email-link:hover {
+                background-color: #1f5236;
+                transform: scale(1.01);
+                box-shadow: 0 8px 20px rgba(31, 82, 54, 0.3);
+            }
+
+            .email-link:active {
+                transform: scale(0.98);
+            }
+
+        /* footer */
+        .footer {
+            margin-top: 3rem;
+            padding: 1.8rem 0 2rem;
+            border-top: 1px solid #e2dac8;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #5e6b5a;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ein {
+            font-family: monospace;
+            background: #efede5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem 1.2rem;
+            }
+
+            .mission-title {
+                font-size: 1.5rem;
+            }
+
+            .email-link {
+                font-size: 1rem;
+                padding: 0.7rem 1.4rem;
+            }
+
+            .logo-area h1 {
+                font-size: 1.7rem;
+            }
+
+            .header {
+                padding: 1rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Site Content</h1>
+    <div class="container">
+        <!-- Header / Identity -->
+        <div class="header">
+            <div class="logo-area">
+                <h1>🌿 Oasis Scholastic Club</h1>
+                <div class="tagline">cultivating minds through literary empowerment</div>
+                <div class="badge">✦ federally recognized 501(c)(3) public charity ✦</div>
+            </div>
+        </div>
+
+        <!-- Core mission: enhanced literary support services -->
+        <div class="mission-section">
+            <div class="mission-title">📖 Our mission: literacy as a gateway</div>
+            <p class="mission-text">
+                <strong>Oasis Scholastic Club</strong> is a dedicated educational non-profit organization committed to the <strong>support and advancement of comprehensive literary support services</strong>. We believe that strong literacy skills unlock potential, fuel curiosity, and build more equitable communities. Through reading initiatives, mentorship programs, resource distribution, and advocacy, we help learners of all ages develop the foundational reading and comprehension skills essential for lifelong success.
+            </p>
+            <p class="mission-text">
+                Our approach combines direct student support, educator training, and community partnerships — creating an oasis where every learner can thrive. We focus on underserved populations, offering book access, tutoring networks, and innovative literacy workshops that blend digital and traditional resources.
+            </p>
+
+            <div class="highlight-list">
+                <div class="highlight-card">
+                    <h3>📚 Book access</h3>
+                    <p>Curated libraries & free book distributions for schools and community centers.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>✍️ Writing & reading workshops</h3>
+                    <p>Interactive sessions that build confidence and critical thinking.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🎓 Educator & family support</h3>
+                    <p>Training, literacy toolkits, and resources to sustain reading growth at home.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- IRS Determination letter summary / official recognition -->
+        <div class="determination-card">
+            <h2>
+                📜 Official 501(c)(3) determination
+                <span class="tax-status">Public Charity • IRC 170(b)(1)(A)(vi)</span>
+            </h2>
+            <p style="margin-bottom: 0.75rem; font-weight: 500;">
+                Based on final determination letter (DLN: 26053434003533 | Effective Date: January 9, 2023), Oasis Scholastic Club is exempt from federal income tax under IRC Section 501(c)(3).
+                Contributions are tax-deductible under IRC Section 170.
+            </p>
+            <div class="letter-details">
+                <div class="detail-item"><span class="detail-label">Employer ID (EIN)</span><div class="detail-value">92-1780538</div></div>
+                <div class="detail-item"><span class="detail-label">Public charity status</span><div class="detail-value">170(b)(1)(A)(vi)</div></div>
+                <div class="detail-item"><span class="detail-label">Accounting period</span><div class="detail-value">December 31 (annual)</div></div>
+                <div class="detail-item"><span class="detail-label">Form 990 filing required</span><div class="detail-value">Yes (Form 990/990-EZ/990-N)</div></div>
+            </div>
+            <p class="footnote">
+                ✅ Donors can deduct contributions under IRC Sections 2055, 2106, or 2522 for bequests, devises, transfers or gifts.
+                As a public charity, we maintain transparency and compliance with IRS guidelines. Please visit <a href="https://www.irs.gov/charities" target="_blank" rel="noopener noreferrer" style="color: #2a6740; text-decoration: underline;">IRS.gov/charities</a> for more information.
+            </p>
+        </div>
+
+        <!-- Supplementary educational non-profit details: community impact & literary support -->
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin: 1.5rem 0;">
+            <div style="flex: 1.5; background: #ffffff; border-radius: 1.5rem; padding: 1.8rem; border: 1px solid #e9e2d2;">
+                <h3 style="font-size: 1.4rem; color: #2a5f3e; margin-bottom: 0.8rem;">✨ Literary support services in action</h3>
+                <p style="margin-bottom: 1rem;">Our structured programs blend one-on-one mentoring, after-school reading circles, and digital literacy platforms. We partner with local libraries, school districts, and volunteer networks to remove barriers to reading — from early childhood phonics to advanced comprehension strategies.</p>
+                <ul style="margin-left: 1.2rem; color: #2c4d38;">
+                    <li>Summer reading challenges & book grants</li>
+                    <li>Literacy coach training for volunteers</li>
+                    <li>Multilingual resources & family engagement events</li>
+                    <li>Scholarship fund for low-income tutoring access</li>
+                </ul>
+            </div>
+            <div style="flex: 1; background: #fefae9; border-radius: 1.5rem; padding: 1.8rem; border: 1px solid #e6dfcb;">
+                <h3 style="font-size: 1.3rem; color: #2a5f3e; margin-bottom: 0.5rem;">🌟 Why we exist</h3>
+                <p>Over 54% of adults in underserved districts lack strong literacy proficiency — we directly confront this crisis. Your support advances equitable literacy ecosystems that transform lives, foster empathy, and build resilient communities.</p>
+                <div style="margin-top: 1.2rem; font-weight: 600; color: #2d6a44;">📖 "Reading opens doors — we make sure no door stays closed."</div>
+            </div>
+        </div>
+
+        <!-- Contact page section: general contact with email link -->
+        <div class="contact-section" id="contact">
+            <h2>✉️ Get in touch</h2>
+            <p>Have questions about our literary support programs, partnership opportunities, or donation inquiries? We’d love to hear from you. Reach out anytime — our team responds within 2 business days.</p>
+            <a href="mailto:hello@oasisscholasticclub.org" class="email-link">
+                📧 hello@oasisscholasticclub.org
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem;">General correspondence | Volunteer opportunities | Media & collaboration</p>
+        </div>
+
+        <!-- Footer with IRS compliance reminder and EIN -->
+        <div class="footer">
+            <span>© 2025 Oasis Scholastic Club — a 501(c)(3) public charity</span>
+            <span class="ein">EIN: 92-1780538</span>
+            <span>📍 Literary support & educational advancement</span>
+        </div>
+    </div>
+    
 </body>
 </html>
